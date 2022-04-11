@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.esther.intermediachallenge.databinding.ActivityLoginBinding
 import com.esther.intermediachallenge.ui.main.MainActivity
+import com.esther.intermediachallenge.ui.signup.SignUpActivity
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -28,6 +29,9 @@ class LoginActivity : AppCompatActivity() {
         binding.loginButtonFacebook.setOnClickListener{
             loginWithFacebook()
         }
+        binding.tvSignUpButton.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
+        }
     }
 
     fun showError(error:String="Error"){
@@ -35,7 +39,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     //Login with Facebook
-    private fun loginWithFacebook(){
+
+    fun loginWithFacebook(){
         LoginManager.getInstance().logInWithReadPermissions(this, callbackManager, listOf("email"))
         LoginManager.getInstance().registerCallback(callbackManager,
             object: FacebookCallback<LoginResult>{
@@ -44,45 +49,60 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 override fun onError(error: FacebookException) {
-                    showError("You don't have a facebook account")
+                    showError("try again")
                 }
 
                 override fun onSuccess(result: LoginResult) {
-                    result.let{ it ->
+                    result.let {
                         val token = it.accessToken
-                        val credential = FacebookAuthProvider
-                            .getCredential(token.token)
-                        FirebaseAuth.getInstance()
-                            .signInWithCredential(credential).addOnCompleteListener {
-                                if(it.isSuccessful){
-                                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                                    finish()
-                                } else{
-                                    showError("you can't connect whit your facebook accout please verify. Try again")
-                                }
+                        val credential = FacebookAuthProvider.getCredential(token.token)
+                        FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener {
+                            if (it.isSuccessful){
+                                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                             }
+                            else{
+                                showError("Create a account")
+                            }
+                        }
                     }
                 }
 
             })
     }
 }
+//private fun loginWithFacebook(){
+//        LoginManager.getInstance().logInWithReadPermissions(this, callbackManager, listOf("email"))
+//        LoginManager.getInstance().registerCallback(callbackManager,
+//            object: FacebookCallback<LoginResult>{
+//                override fun onCancel() {
+//                    showError("you canceled your login")
+//                }
+//                override fun onError(error: FacebookException) {
+//                    showError("You don't have a facebook account")
+//                }
+//                override fun onSuccess(result: LoginResult) {
+//                    result.let{
+//                        val token = it.accessToken
+//                        val credential = FacebookAuthProvider
+//                              .getCredential(token.token)
+//                        FirebaseAuth.getInstance()
+//                            .signInWithCredential(credential).addOnCompleteListener {
+//                                if(it.isSuccessful){
+//                                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+//                                    finish()
+//                                } else{
+//                                    showError("you can't connect whit your facebook accout please verify. Try again")
+//                                }
+//                            }
+//                    }
+//                }
+//
+//            })
+//    }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-//key hash =Hzh4P5G3bPA2Dy/Oeox+1JtWZgU=
+//key hash = Hzh4P5G3bPA2Dy/Oeox+1JtWZgU=
 
 // zY00cczs2SG28RTn1bZQvsCftvI=
