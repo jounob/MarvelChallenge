@@ -54,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFieldEmail"
         app:startIconContentDescription="email"
-        app:startIconDrawable="@drawable/ic_email_black_24dp">
+        app:startIconDrawable="@drawable/ic_lock_black_24dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtPassword"
@@ -63,6 +63,7 @@
             android:cursorVisible="true"
             android:filterTouchesWhenObscured="true"
             android:hint="Password"
+            android:inputType="textPassword"
             android:textAlignment="textStart"
             android:textCursorDrawable="@color/dark_gray"
             android:textSize="14sp"
@@ -107,7 +108,7 @@
         android:id="@+id/tvSignUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/don_t_have_an_account_sign_up"
+        android:text="@string/signup_in_login"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/loginButtonFacebook"
@@ -120,7 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="Button"
+        android:text="Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFieldPassword" />

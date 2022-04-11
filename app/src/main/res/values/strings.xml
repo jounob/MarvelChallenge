@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Intermedia Challenge</string>
-    <string name="facebook_app_id">376282424193623</string>
-    <string name="fb_login_protocol_scheme">fb376282424193623</string>
-    <string name="facebook_client_token">78a36889b403c6f311bc5d2fd2b42396</string>
-    <string name="don_t_have_an_account_sign_up">Don\'t have an account? SIGN UP</string>
+    <string name="facebook_app_id">726882908468208</string>
+    <string name="fb_login_protocol_scheme">fb726882908468208</string>
+    <string name="facebook_client_token">8a75e3a85e4dbf398d266b074f336aa1</string>
+    <string name="signup_in_login"><u>Don\'t have an account? SIGN UP</u></string>
+    <string name="login_in_signup"><u>I already have an account/LOGIN</u></string>
 </resources>
