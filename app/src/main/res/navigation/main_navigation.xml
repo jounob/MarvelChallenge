@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/charactersFragment"
-        android:name="com.esther.intermediachallenge.CharactersFragment"
+        android:name="com.esther.intermediachallenge.ui.characters.CharactersFragment"
         android:label="@string/title_characters"
         tools:layout="@layout/fragment_characters" />
     <fragment
         android:id="@+id/eventsFragment"
-        android:name="com.esther.intermediachallenge.EventsFragment"
+        android:name="com.esther.intermediachallenge.ui.events.EventsFragment"
         android:label="@string/title_events"
         tools:layout="@layout/fragment_events" />
 </navigation>
