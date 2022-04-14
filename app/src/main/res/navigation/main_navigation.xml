@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/charactersFragment">
+    app:startDestination="@id/navigation_characters">
 
     <fragment
-        android:id="@+id/charactersFragment"
+        android:id="@+id/navigation_characters"
         android:name="com.esther.intermediachallenge.ui.characters.CharactersFragment"
         android:label="@string/title_characters"
         tools:layout="@layout/fragment_characters" />
     <fragment
-        android:id="@+id/eventsFragment"
+        android:id="@+id/navigation_events"
         android:name="com.esther.intermediachallenge.ui.events.EventsFragment"
         android:label="@string/title_events"
         tools:layout="@layout/fragment_events" />
