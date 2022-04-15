@@ -74,7 +74,8 @@ class LoginActivity : AppCompatActivity() {
     //Login with Facebook
 
     private fun loginWithFacebook() {
-        LoginManager.getInstance().logInWithReadPermissions(this, callbackManager, listOf("email"))
+        LoginManager.getInstance().
+        logInWithReadPermissions(this, callbackManager, listOf("email"))
         LoginManager.getInstance().registerCallback(callbackManager,
             object : FacebookCallback<LoginResult> {
                 override fun onCancel() {
@@ -108,7 +109,7 @@ class LoginActivity : AppCompatActivity() {
             })
     }
 
-    private fun onTextFieldChange(){
+    private fun onTextFieldChange() {
         binding.apply {
             edtEmail.doAfterTextChanged {
                 loginViewModel.updateStateLogin(

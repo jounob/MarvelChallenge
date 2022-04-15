@@ -9,10 +9,32 @@
         android:id="@+id/navigation_characters"
         android:name="com.esther.intermediachallenge.ui.characters.CharactersFragment"
         android:label="@string/title_characters"
-        tools:layout="@layout/fragment_characters" />
+        tools:layout="@layout/fragment_characters" >
+        <action
+            android:id="@+id/goToDetails"
+            app:destination="@id/characterDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_events"
         android:name="com.esther.intermediachallenge.ui.events.EventsFragment"
         android:label="@string/title_events"
         tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/characterDetails"
+        android:name="com.esther.intermediachallenge.ui.characters.CharactersFragment"
+        android:label="fragment_character_details"
+        tools:layout="@layout/fragment_character_details" >
+        <argument
+            android:name="characterArgs"
+            app:argType="com.esther.intermediachallenge.data.models.Character" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterDetailsFragment"
+        android:name="com.esther.intermediachallenge.ui.details.CharacterDetailsFragment"
+        android:label="fragment_character_details2"
+        tools:layout="@layout/fragment_character_details" >
+        <argument
+            android:name="character"
+            app:argType="com.esther.intermediachallenge.data.models.Character" />
+    </fragment>
 </navigation>
