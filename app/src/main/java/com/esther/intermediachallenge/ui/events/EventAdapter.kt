@@ -9,7 +9,6 @@ import com.esther.intermediachallenge.databinding.EventsItemBinding
 import com.esther.intermediachallenge.ui.base.BaseAdapter
 import com.esther.intermediachallenge.utils.binding.setImage
 
-
 class EventAdapter : BaseAdapter<Events,
         EventAdapter.EventViewHolder>() {
 
@@ -32,10 +31,8 @@ class EventAdapter : BaseAdapter<Events,
             binding.apply {
                 setImage(ivEventsThumbnail, events.thumbnail)
                 tvTitleEvent.text = events.title
-                tvDateEvent.text = events.start
+                tvDateEvent.text = events.start ?: "no date"
             }
         }
     }
-
-
 }

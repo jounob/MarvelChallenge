@@ -6,10 +6,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.details.CharacterDetailsFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/layoutDetails">
+
+
 
         <ImageView
             android:id="@+id/ivImageComcis"
@@ -35,6 +38,19 @@
             app:layout_constraintTop_toBottomOf="@+id/ivImageComcis"
             tools:text="Lorem itsum" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvComics"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleAppears"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_comics" />
+
         <TextView
             android:id="@+id/tvTitleAppears"
             android:layout_width="wrap_content"
@@ -49,18 +65,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtViewDescription" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvComics"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitleAppears"
-            tools:itemCount="10"
-            tools:listitem="@layout/item_comics" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

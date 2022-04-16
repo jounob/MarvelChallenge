@@ -7,6 +7,6 @@ import javax.inject.Inject
 class EventsDataSource @Inject constructor(
     private val eventService: EventService
 ) : NetResult() {
-    suspend fun getEvent(auth: HashMap<String, String>, limit:Int, orderBy:String,) =
-        getResult { eventService.getEvents(auth, limit, orderBy) }
+    suspend fun getEvent(auth: HashMap<String, String>, orderBy: String, limit: Int) =
+        getResult { eventService.getEvents(auth, orderBy, limit) }
 }

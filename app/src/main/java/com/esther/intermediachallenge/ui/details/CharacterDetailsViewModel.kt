@@ -40,10 +40,10 @@ class CharacterDetailsViewModel @Inject constructor(private val charactersReposi
             }
         }
     }
-
-    data class CharacterDetailsState(
-        val isLoading: Boolean = false,
-        val isError: Boolean = false,
-        val isSuccess: List<Comic> = emptyList()
-    )
 }
+
+data class CharacterDetailsState(
+    val isLoading: Boolean = false,
+    val isError: Boolean = false,
+    val isSuccess: List<Comic> = emptyList()
+)

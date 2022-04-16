@@ -26,9 +26,7 @@ class CharacterDetailsFragment : Fragment() {
     private val viewModel: CharacterDetailsViewModel by viewModels()
     private val adapter = ComicAdapter()
 
-
     private val args by navArgs<CharacterDetailsFragmentArgs>()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
