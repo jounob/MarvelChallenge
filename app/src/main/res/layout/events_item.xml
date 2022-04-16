@@ -3,17 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:foregroundGravity="center"
         app:cardCornerRadius="6dp"
         app:cardElevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,8 +26,12 @@
 
             <ImageView
                 android:id="@+id/ivEventsThumbnail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="86dp"
+                android:layout_height="86dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -36,11 +42,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="48dp"
                 android:text="Evolutionary War "
                 android:textAlignment="viewStart"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivEventsThumbnail"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -52,22 +58,22 @@
                 android:layout_marginStart="8dp"
                 android:text="1998-01-01 00:00:00"
                 android:textAlignment="viewStart"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivEventsThumbnail"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitleEvent"
-                app:layout_constraintVertical_bias="0.110000014" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
-                android:layout_width="44dp"
-                android:layout_height="50dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_marginEnd="4dp"
                 android:backgroundTint="@android:color/transparent"
-                android:rotation="90"
+                android:rotation="270"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.96"
                 app:layout_constraintStart_toEndOf="@+id/ivEventsThumbnail"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@android:drawable/ic_menu_send"

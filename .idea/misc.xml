@@ -30,10 +30,10 @@
         <entry key="app/src/main/res/layout/fragment_character_details.xml" value="0.2116289012398461" />
         <entry key="app/src/main/res/layout/fragment_character_details2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_characters.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/fragment_events.xml" value="0.17956391620350576" />
+        <entry key="app/src/main/res/layout/fragment_events.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_comics.xml" value="0.2116289012398461" />
         <entry key="app/src/main/res/layout/loading.xml" value="0.15911151405258386" />
-        <entry key="app/src/main/res/layout/view_hero_item.xml" value="0.18896964514749892" />
+        <entry key="app/src/main/res/layout/view_hero_item.xml" value="0.1" />
         <entry key="app/src/main/res/menu/main_nav_menu.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_marvel_logo.xml" value="0.1005" />

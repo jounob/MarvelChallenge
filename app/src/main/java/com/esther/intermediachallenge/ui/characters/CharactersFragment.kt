@@ -13,7 +13,6 @@ import com.esther.intermediachallenge.databinding.FragmentCharactersBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class CharactersFragment : Fragment() {
 
@@ -42,7 +41,6 @@ class CharactersFragment : Fragment() {
           val action = CharactersFragmentDirections.goToDetails(it)
             findNavController().navigate(action)
         }
-
     }
 
     private fun setupPagination() {
@@ -64,7 +62,6 @@ class CharactersFragment : Fragment() {
                 }
                 it.isError -> { retry()}
                 it.isSuccess.isNotEmpty() -> {
-
                     adapter.addAll(it.isSuccess)
                     binding.progressBarCharacter.root.isVisible = false
 
@@ -80,7 +77,7 @@ class CharactersFragment : Fragment() {
         binding.progressBarCharacter.root.isVisible = true
     }
 
-    fun retry(){
+    private fun retry(){
         val contextView = binding.rvListComics
         Snackbar.make(contextView, "No Internet Connection please retry", Snackbar.LENGTH_INDEFINITE)
             .setAction("Retry") {

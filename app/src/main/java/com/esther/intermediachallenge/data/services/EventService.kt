@@ -13,7 +13,7 @@ interface EventService {
     @GET("events")
     suspend fun getEvents(
         @QueryMap auth: HashMap<String, String>,
-        @Query("limit") limit:Int,
         @Query("orderBy") orderBy: String,
+        @Query("limit") limit:Int,
     ): Response<ApiResponse<Data<List<Events>>>>
 }

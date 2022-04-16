@@ -8,6 +8,6 @@ import javax.inject.Inject
 class EventRepository @Inject constructor(
     private val eventsDataSource: EventsDataSource
 ) : BaseRepository() {
-    suspend fun getEvents(limit:Int = 25, orderBy: String = "startDate"):Resource<List<Events>> =
-        eventsDataSource.getEvent(authParams.getMap(), limit, orderBy)
+    suspend fun getEvents(orderBy: String = "startDate", limit: Int = 25): Resource<List<Events>> =
+        eventsDataSource.getEvent(authParams.getMap(), orderBy, limit)
 }

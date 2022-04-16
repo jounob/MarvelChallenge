@@ -1,14 +1,12 @@
 package com.esther.intermediachallenge.ui.characters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.esther.intermediachallenge.R
+import com.esther.intermediachallenge.data.models.Character
 import com.esther.intermediachallenge.databinding.ViewHeroItemBinding
 import com.esther.intermediachallenge.ui.base.BaseAdapter
-import com.esther.intermediachallenge.data.models.Character
 import com.esther.intermediachallenge.utils.binding.setImage
 
 class CharactersAdapter : BaseAdapter<Character,
@@ -44,5 +42,4 @@ class CharactersAdapter : BaseAdapter<Character,
             }
         }
     }
-
 }

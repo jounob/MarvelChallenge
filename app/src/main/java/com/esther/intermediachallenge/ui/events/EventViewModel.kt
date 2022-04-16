@@ -34,16 +34,17 @@ class EventViewModel @Inject constructor(
                         _eventState.value = EventState(isLoading = true)
                     Resource.Status.ERROR ->
                         _eventState.value = EventState(isError = true)
-                    Resource.Status.SUCCESS -> EventState(isSuccess = this.data ?: emptyList())
+                    Resource.Status.SUCCESS ->
+                        _eventState.value = EventState(isSuccess = this.data ?: emptyList())
                 }
             }
         }
     }
 
+    data class EventState(
+        val isLoading: Boolean = false,
+        val isError: Boolean = false,
+        val isSuccess: List<Events> = emptyList()
+    )
 }
 
-data class EventState(
-    val isLoading: Boolean = false,
-    val isError: Boolean = false,
-    val isSuccess: List<Events> = emptyList()
-)
