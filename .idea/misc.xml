@@ -26,7 +26,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.23020833333333332" />
-        <entry key="app/src/main/res/layout/fragment_character_details.xml" value="0.2116289012398461" />
+        <entry key="app/src/main/res/layout/fragment_character_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_character_details2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_characters.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_events.xml" value="0.1" />

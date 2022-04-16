@@ -60,7 +60,7 @@ class CharactersFragment : Fragment() {
         viewModel.characterState.observe(viewLifecycleOwner) {
             when {
                 it.isLoading -> {
-//                    loading()
+                    loading()
                 }
                 it.isError -> { retry()}
                 it.isSuccess.isNotEmpty() -> {
@@ -75,9 +75,9 @@ class CharactersFragment : Fragment() {
 
 
 
-//    private fun loading(){
-//        binding.progressBar.root.isVisible = true
-//    }
+    private fun loading(){
+        binding.progressBarCharacter.root.isVisible = true
+    }
 
     fun retry(){
         val contextView = binding.rvListComics

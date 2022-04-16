@@ -16,11 +16,12 @@
             layout="@layout/loading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="21dp"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTitleAppears"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ivImageComcis" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleAppears" />
 
         <ImageView
             android:id="@+id/ivImageComcis"
@@ -40,7 +41,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:fontFamily="@font/roboto_condensend_regular"
-            android:text="Lorem itsum"
+            tools:text="Lorem itsum"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/roboto_condensed_bold"
-            android:text="Appears in this"
+            android:text="@string/appears_in_this_comics"
             android:textAlignment="center"
             android:textSize="34sp"
             android:textStyle="bold"

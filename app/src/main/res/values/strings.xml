@@ -13,5 +13,6 @@
     <string name="txt_email">Email</string>
     <string name="title_app">Marvel Challenge</string>
     <string name="text_sign_up">Sign Up</string>
+    <string name="appears_in_this_comics">Appears in this Comics</string>
 
 </resources>
