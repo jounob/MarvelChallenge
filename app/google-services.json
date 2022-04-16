@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "14700934488",
+    "project_id": "marvel-challenge-da131",
+    "storage_bucket": "marvel-challenge-da131.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14700934488:android:64b2455f5c063f8266212d",
+        "android_client_info": {
+          "package_name": "com.esther.intermediachallenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14700934488-j7enlk4i4qdvj1civl3hig1k0f30tabh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0xXMxB7c_yh5r_rR4qdKidsuWE9yk8lE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "14700934488-j7enlk4i4qdvj1civl3hig1k0f30tabh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
