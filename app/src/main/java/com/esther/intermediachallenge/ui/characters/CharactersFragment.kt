@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.esther.intermediachallenge.databinding.FragmentCharactersBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -26,6 +28,7 @@ class CharactersFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentCharactersBinding.inflate(inflater, container, false)
+
         setupCharactersList()
         characterObserver()
         setupPagination()
@@ -33,11 +36,13 @@ class CharactersFragment : Fragment() {
     }
 
     private fun setupCharactersList() {
+        binding.rvListComics.adapter = adapter
 
         adapter.onClickListener = {
           val action = CharactersFragmentDirections.goToDetails(it)
             findNavController().navigate(action)
         }
+
     }
 
     private fun setupPagination() {
@@ -54,15 +59,33 @@ class CharactersFragment : Fragment() {
     private fun characterObserver() {
         viewModel.characterState.observe(viewLifecycleOwner) {
             when {
-                it.isLoading -> {}
-                it.isError -> {}
+                it.isLoading -> {
+//                    loading()
+                }
+                it.isError -> { retry()}
                 it.isSuccess.isNotEmpty() -> {
+
                     adapter.addAll(it.isSuccess)
-                    binding.rvListComics.adapter = adapter
+
                 }
             }
         }
 
+    }
+
+
+
+//    private fun loading(){
+//        binding.progressBar.root.isVisible = true
+//    }
+
+    fun retry(){
+        val contextView = binding.rvListComics
+        Snackbar.make(contextView, "No Internet Connection please retry", Snackbar.LENGTH_INDEFINITE)
+            .setAction("Retry") {
+                characterObserver()
+            }
+            .show()
     }
 
     override fun onDestroyView() {

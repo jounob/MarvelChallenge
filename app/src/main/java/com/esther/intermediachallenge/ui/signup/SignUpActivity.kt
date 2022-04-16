@@ -10,6 +10,7 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.Observer
 import com.esther.intermediachallenge.databinding.ActivitySignUpBinding
 import com.esther.intermediachallenge.ui.login.LoginActivity
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -51,13 +52,10 @@ class SignUpActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    showToast("CREATE AN ACCOUT IS SUCCESSFUL")
-                    Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
 //                    updateUI(user)
                 } else {
-                    showToast("YOU ALREADY HAVE AN ACCOUNT WITH THIS EMAIL")
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
+                    showSnackBar("YOU ALREADY HAVE AN ACCOUNT WITH THIS EMAIL. GO TO LOGIN")
 //                    updateUI(null)
                 }
 
@@ -102,8 +100,8 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun observeFieldsState() {
-        signUpViewModel.signUpState.observe(this, Observer {
-            with(binding){
+        signUpViewModel.signUpState.observe(this) {
+            with(binding) {
                 btnSignUp.isEnabled = it.isAllFieldValid
                 when {
                     it.isUserNameValid && edtName.text?.isNotBlank() == true -> edtName.error =
@@ -112,9 +110,9 @@ class SignUpActivity : AppCompatActivity() {
                         "Email not correct"
                     it.isPasswordValid && edtPassword.text?.isNotBlank() == true -> edtPassword.error =
                         "Password not correct"
-                    edtConfirmedPassword!= edtPassword && it.isConfirmedPasswordValid -> edtConfirmedPassword.error =
+                    edtConfirmedPassword != edtPassword && it.isConfirmedPasswordValid -> edtConfirmedPassword.error =
                         "Don't match Password"
-                    else  -> {
+                    else -> {
                         btnSignUp.setOnClickListener {
                             createAccount(
                                 edtEmail.text.toString(),
@@ -127,17 +125,16 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
 
-        })
+        }
+    }
+    fun showSnackBar(msg: String) {
+        val contextView = binding.btnSignUp
+        Snackbar.make(contextView, msg, Snackbar.LENGTH_SHORT)
+            .show()
     }
 
 
-//    private fun updateUI(user: FirebaseUser?) {
-//
-//    }
 
-//    private fun reload() {
-//
-//    }
 
     companion object {
         private const val TAG = "EmailPassword"

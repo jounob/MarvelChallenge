@@ -29,17 +29,20 @@ class CharactersAdapter : BaseAdapter<Character,
         holder.bind(list[position])
     }
 
-    class CharactersViewHolder(private val binding: ViewHeroItemBinding, private val onItemClick:((Character) ->Unit)?) : RecyclerView.ViewHolder(binding.root) {
-         fun bind(character: Character){
-             binding.apply{
+    class CharactersViewHolder(
+        private val binding: ViewHeroItemBinding,
+        private val onItemClick: ((Character) -> Unit)?
+    ) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(character: Character) {
+            binding.apply {
                 setImage(imageCharacterThumbnail, character.thumbnail)
                 characterName.text = character.name
-                 characterDescription.text = character.description
-                 root.setOnClickListener {
-                     onItemClick?.invoke(character)
-                 }
-             }
-         }
+                characterDescription.text = character.description
+                root.setOnClickListener {
+                    onItemClick?.invoke(character)
+                }
+            }
+        }
     }
 
 }

@@ -9,7 +9,7 @@ import java.security.MessageDigest
 abstract class BaseRepository {
 
     protected val authParams = AuthParams(BuildConfig.PUBLIC_API_KEY, 1, generateHash())
-//
+
 //    protected fun <T> handleResult(result: Response<T>): Resource<T> {
 //        if (result.isSuccessful)
 //            result.body()
@@ -34,4 +34,5 @@ abstract class BaseRepository {
     private fun generateHash(): String = MessageDigest.getInstance("MD5")
         .digest(("1${BuildConfig.PRIVATE_API_KEY}${BuildConfig.PUBLIC_API_KEY}").toByteArray())
         .joinToString("") { "%02x".format(it) }
+
 }

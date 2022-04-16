@@ -15,6 +15,7 @@ import com.facebook.FacebookCallback
 import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -63,10 +64,8 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-
-                    showToast("WELCOME!!!!!!")
                 } else {
-                    showToast(" YOU DON'T HAVE ACCOUNT! PLEASE LOGIN OR SIGN UP")
+                    showSnackBar("The combination of Email and Password is not correct. Please retry.")
                 }
             }
     }
@@ -74,12 +73,11 @@ class LoginActivity : AppCompatActivity() {
     //Login with Facebook
 
     private fun loginWithFacebook() {
-        LoginManager.getInstance().
-        logInWithReadPermissions(this, callbackManager, listOf("email"))
+        LoginManager.getInstance().logInWithReadPermissions(this, callbackManager, listOf("email"))
         LoginManager.getInstance().registerCallback(callbackManager,
             object : FacebookCallback<LoginResult> {
                 override fun onCancel() {
-                    showToast("you canceled your login")
+                    showSnackBar("you canceled your login")
                 }
 
                 override fun onError(error: FacebookException) {
@@ -100,7 +98,7 @@ class LoginActivity : AppCompatActivity() {
                                         )
                                     )
                                 } else {
-                                    showToast("Create a account")
+                                    showSnackBar("The combination of Email and Password is not correct. Please retry.")
                                 }
                             }
                     }
@@ -127,7 +125,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun observeFieldState() {
-        loginViewModel.loginState.observe(this, Observer {
+        loginViewModel.loginState.observe(this) {
             with(binding) {
                 when {
                     it.isEmailValid && edtEmail.text?.isNotBlank() == true -> edtEmail.error =
@@ -144,7 +142,13 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             }
-        })
+        }
+    }
+
+    fun showSnackBar(msg: String) {
+        val contextView = binding.btnLogin
+        Snackbar.make(contextView, msg, Snackbar.LENGTH_SHORT)
+            .show()
     }
 
 

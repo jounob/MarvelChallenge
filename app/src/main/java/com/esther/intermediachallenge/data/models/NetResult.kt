@@ -10,7 +10,8 @@ abstract class NetResult {
             val response = call()
             if (response.isSuccessful) {
                 val body = response.body()?.data?.results
-                if (body != null) return Resource.success(body)
+//                if (body != null) return Resource.success(body)
+                return Resource.success(body)
             }
             return Resource.error("${response.code()}: ${response.message()}")
         } catch (e: Exception) {

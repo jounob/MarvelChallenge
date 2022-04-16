@@ -25,6 +25,8 @@ fun isPasswordValid(password: String): Boolean{
         .matcher(password).matches()
 }
 
+
+
 //fun isPasswordValid(password: String): Boolean {
 //    val PASSWORD_PATTERN = "^(?=.*\\d)(?=.*[a-z])(?=.*[a-zA-Z]).{8,}\$"
 //    val pattern = Pattern.compile(PASSWORD_PATTERN)

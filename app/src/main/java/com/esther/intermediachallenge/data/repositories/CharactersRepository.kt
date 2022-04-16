@@ -11,4 +11,7 @@ class CharactersRepository @Inject constructor(
 
     suspend fun getCharacters(offset: Int = 0, limit: Int = 15): Resource<List<Character>> =
         characterDataSource.getCharacter(authParams.getMap(), offset, limit)
+
+    suspend fun getComicsByCharacterID(offset: Int = 0, limit: Int = 10, characterId:Int) =
+        characterDataSource.getComicsByCharacterID(authParams.getMap(), offset, limit, characterId)
 }

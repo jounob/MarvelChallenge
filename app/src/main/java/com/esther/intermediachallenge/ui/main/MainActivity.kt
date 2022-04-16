@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         binding.tvToolBarTitle.text = title
     }
 
+
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
