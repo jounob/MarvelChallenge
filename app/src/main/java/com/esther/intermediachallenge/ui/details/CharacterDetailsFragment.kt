@@ -27,7 +27,7 @@ class CharacterDetailsFragment : Fragment() {
     private val adapter = ComicAdapter()
 
 
-    val args by navArgs<CharacterDetailsFragmentArgs>()
+    private val args by navArgs<CharacterDetailsFragmentArgs>()
 
 
     override fun onCreateView(
@@ -59,38 +59,42 @@ class CharacterDetailsFragment : Fragment() {
             rvComics.adapter = adapter
 
         }
-        viewModel.loadComics(1011334)
+        viewModel.loadComics(args.character.id)
 
     }
     private fun characterDetailsObserver() {
         viewModel.characterDetailsState.observe(viewLifecycleOwner) {
             when {
                 it.isLoading -> {
-                    loading()
-                    Log.d("COMICS::::::::::LOA", "${it.isLoading}")
+                    hideViewAndShowLoading()
                 }
                 it.isError -> {
                     retry()
-                    Log.d("COMICS::::::::::ERR", "${it.isError}")
                 }
                 it.isSuccess.isNotEmpty() -> {
-                    Log.d("COMICS::::::::::", "${it.isSuccess[0].title}")
                     adapter.addAll(it.isSuccess)
+                    hideLoadingAndShowView()
                 }
             }
         }
 
     }
 
-    fun retry(){
+    private fun retry(){
         val contextView = binding.rvComics
-        Snackbar.make(contextView, "Text label", Snackbar.LENGTH_LONG)
-            .setAction("Action") {
+        Snackbar.make(contextView, "Wait a fwe second and try again", Snackbar.LENGTH_LONG)
+            .setAction("RETRY") {
                 // Responds to click on the action
+                characterDetailsObserver()
             }
             .show()
     }
-    private fun loading(){
+    private fun hideViewAndShowLoading(){
         binding.progressBarCharacter.root.isVisible = true
+        binding.layoutDetails.isVisible = false
+    }
+    private fun hideLoadingAndShowView(){
+        binding.progressBarCharacter.root.isVisible = false
+        binding.layoutDetails.isVisible = true
     }
 }

@@ -13,15 +13,15 @@ interface CharacterService {
     suspend fun getCharacters(
         @QueryMap auth: HashMap<String, String>,
         @Query("offset") offset: Int,
-        @Query("limit") limit: Int
+        @Query("limit") limit: Int,
     ): Response<ApiResponse<Data<List<Character>>>>
 
     @GET("characters/{characterId}/comics")
     suspend fun getComicsByCharacterID(
+        @Path("characterId") characterId: Int,
         @QueryMap auth: HashMap<String, String>,
         @Query("offset") offset: Int,
         @Query("limit") limit: Int,
-        @Path("characterId") characterId: Int
     ): Response<ApiResponse<Data<List<Comic>>>>
 }
 

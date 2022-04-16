@@ -25,7 +25,7 @@ class CharactersFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentCharactersBinding.inflate(inflater, container, false)
 
@@ -66,6 +66,7 @@ class CharactersFragment : Fragment() {
                 it.isSuccess.isNotEmpty() -> {
 
                     adapter.addAll(it.isSuccess)
+                    binding.progressBarCharacter.root.isVisible = false
 
                 }
             }

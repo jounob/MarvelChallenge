@@ -7,16 +7,7 @@
     tools:context=".ui.characters.CharactersFragment">
 
 
-    <include
-        android:id="@+id/progress_bar_character"
-        layout="@layout/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rvListComics" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvListComics"
@@ -31,5 +22,17 @@
         app:layout_constraintVertical_bias="0.0"
         tools:itemCount="10"
         tools:listitem="@layout/view_hero_item" />
+
+
+    <include
+        android:id="@+id/progress_bar_character"
+        layout="@layout/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rvListComics" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

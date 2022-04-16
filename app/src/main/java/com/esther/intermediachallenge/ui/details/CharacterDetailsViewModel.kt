@@ -23,9 +23,10 @@ class CharacterDetailsViewModel @Inject constructor(private val charactersReposi
 //        loadComics(22506)
 //    }
     fun loadComics(characterId: Int) {
-        viewModelScope.launch(Dispatchers.Main) {
+    _characterDetailsState.value = CharacterDetailsState(isLoading = true)
+    viewModelScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {
-                charactersRepository.getComicsByCharacterID(characterId=characterId)
+                charactersRepository.getComicsByCharacterID(characterId)
             }.run {
                 when (status) {
                     Resource.Status.LOADING ->
@@ -42,7 +43,7 @@ class CharacterDetailsViewModel @Inject constructor(private val charactersReposi
 
     data class CharacterDetailsState(
         val isLoading: Boolean = false,
-        val isError: Boolean = true,
+        val isError: Boolean = false,
         val isSuccess: List<Comic> = emptyList()
     )
 }

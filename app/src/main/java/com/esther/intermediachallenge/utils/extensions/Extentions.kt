@@ -26,25 +26,3 @@ fun isPasswordValid(password: String): Boolean{
 }
 
 
-
-//fun isPasswordValid(password: String): Boolean {
-//    val PASSWORD_PATTERN = "^(?=.*\\d)(?=.*[a-z])(?=.*[a-zA-Z]).{8,}\$"
-//    val pattern = Pattern.compile(PASSWORD_PATTERN)
-//    val matcher = pattern.matcher(password)
-//
-//    return matcher.matches()
-//}
-
-
-//val EMAIL_ADDRESS_PATTERN: Pattern = Pattern.compile(
-//    "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
-//            "\\@" +
-//            "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-//            "(" +
-//            "\\." +
-//            "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-//            ")+"
-//)
-//fun isEmailValid(email: String): Boolean {
-//    return EMAIL_ADDRESS_PATTERN.matcher(email).matches()
-//}

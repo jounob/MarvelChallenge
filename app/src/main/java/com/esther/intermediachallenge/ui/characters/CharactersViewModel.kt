@@ -26,6 +26,7 @@ class CharactersViewModel @Inject constructor(private val charactersRepository: 
     }
 
     private fun loadCharacters(moreCharacter: Int) {
+        _charactersState.value = CharacterState(isLoading = true)
         viewModelScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {
                 charactersRepository.getCharacters(moreCharacter)

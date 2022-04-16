@@ -10,9 +10,9 @@ class CharacterDataSource @Inject constructor(
     suspend fun getCharacter(auth: HashMap<String, String>, offset: Int, limit: Int) =
         getResult { characterService.getCharacters(auth, offset, limit) }
 
-    suspend fun getComicsByCharacterID(
+    suspend fun getComicsByCharacterID(characterId: Int,
         auth: HashMap<String, String>,
-        offset: Int, limit: Int, characterId: Int
+        offset: Int, limit: Int
     ) =
-        getResult { characterService.getComicsByCharacterID(auth, offset, limit, characterId) }
+        getResult { characterService.getComicsByCharacterID(characterId, auth, offset, limit) }
 }
