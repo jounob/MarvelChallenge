@@ -2,8 +2,11 @@ package com.esther.intermediachallenge.di
 
 import android.app.Service
 import com.esther.intermediachallenge.data.dataSource.CharacterDataSource
+import com.esther.intermediachallenge.data.dataSource.EventsDataSource
 import com.esther.intermediachallenge.data.repositories.CharactersRepository
+import com.esther.intermediachallenge.data.repositories.EventRepository
 import com.esther.intermediachallenge.data.services.CharacterService
+import com.esther.intermediachallenge.data.services.EventService
 import com.esther.intermediachallenge.utils.ApiConfiguration.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -46,5 +49,20 @@ class DataModule {
     @Provides
     fun provideCharacterRepository(characterDataSource: CharacterDataSource): CharactersRepository {
         return CharactersRepository(characterDataSource)
+    }
+
+    @Provides
+    fun provideEventService(@ApiMarvel retrofit: Retrofit): EventService {
+        return retrofit.create(EventService::class.java)
+    }
+
+    @Provides
+    fun provideEventDataSource(eventService: EventService): EventsDataSource {
+        return EventsDataSource(eventService)
+    }
+
+    @Provides
+    fun provideEventRepository(eventsDataSource: EventsDataSource): EventRepository {
+        return EventRepository(eventsDataSource)
     }
 }
