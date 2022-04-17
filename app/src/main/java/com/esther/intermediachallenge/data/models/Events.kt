@@ -8,3 +8,5 @@ data class Events(
     @SerializedName("start") val start: String?,
     @SerializedName("thumbnail") val thumbnail: Thumbnail,
 )
+
+

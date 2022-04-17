@@ -35,4 +35,8 @@ class EventAdapter : BaseAdapter<Events,
             }
         }
     }
+
+    override fun getItemViewType(position: Int): Int {
+        return super.getItemViewType(position)
+    }
 }

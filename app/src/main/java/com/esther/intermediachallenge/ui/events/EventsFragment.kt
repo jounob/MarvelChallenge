@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.esther.intermediachallenge.databinding.FragmentEventsBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,13 +39,28 @@ class EventsFragment : Fragment() {
     private fun eventObserve() {
         viewModel.eventState.observe(viewLifecycleOwner) {
             when {
-                it.isLoading -> {Log.d("EVENTS::::", "${it.isLoading}")}
-                it.isError -> {Log.d("EVENTS::::", "${it.isError}")}
+                it.isLoading -> {loading()}
+                it.isError -> {retry()}
                 it.isSuccess.isNotEmpty() -> {
-                    Log.d("EVENTS::::", "${it.isSuccess}")
                     adapter.addAll(it.isSuccess)
                 }
             }
         }
+    }
+    private fun loading(){
+        binding.progressBarEvent.root.isVisible = true
+    }
+
+    private fun retry(){
+        val contextView = binding.rvEventsList
+        Snackbar.make(contextView, "No Internet Connection please retry", Snackbar.LENGTH_INDEFINITE)
+            .setAction("Retry") {
+                eventObserve()
+            }
+            .show()
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

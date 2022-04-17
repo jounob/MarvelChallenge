@@ -31,7 +31,7 @@ class ComicAdapter : BaseAdapter<Comic,
         fun bind(comic: Comic) {
             binding.apply {
                 tvComicTitle.text = comic.title
-                tvComicYear.text = comic.dates[0].date
+                tvComicYear.text = comic.dates[0].date.substringBefore("-")
 
             }
         }

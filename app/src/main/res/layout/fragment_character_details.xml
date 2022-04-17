@@ -67,12 +67,10 @@
 
 
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include
-        android:id="@+id/progress_bar_character"
+        android:id="@+id/progress_bar"
         layout="@layout/loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

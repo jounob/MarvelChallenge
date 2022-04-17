@@ -1,5 +1,11 @@
 package com.esther.intermediachallenge.utils.extensions
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 import java.util.regex.Pattern
 
 val EMAIL_PATTERN =
@@ -24,5 +30,6 @@ fun isPasswordValid(password: String): Boolean{
     return Pattern.compile(PASSWORD_PATTERN)
         .matcher(password).matches()
 }
+
 
 
