@@ -43,6 +43,7 @@ class EventsFragment : Fragment() {
                 it.isError -> {retry()}
                 it.isSuccess.isNotEmpty() -> {
                     adapter.addAll(it.isSuccess)
+                    binding.progressBarEvent.root.isVisible = false
                 }
             }
         }
