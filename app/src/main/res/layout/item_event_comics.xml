@@ -10,12 +10,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/roboto_condensend_regular"
-        android:text="TextView"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:text="Star Wars(2015) "
+        android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,12 +27,11 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="4dp"
         android:fontFamily="@font/roboto_condensend_regular"
-        android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="2015"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvComicEventTitle" />
 
@@ -41,12 +40,14 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:background="#8C8A8A"
+        android:layout_marginBottom="16dp"
+        android:background="#A5A0A0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvComicEventYear"
-        app:layout_constraintVertical_bias="0.00999999" />
+        app:layout_constraintTop_toBottomOf="@+id/tvComicEventYear" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

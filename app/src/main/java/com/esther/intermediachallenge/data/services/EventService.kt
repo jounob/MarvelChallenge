@@ -16,4 +16,6 @@ interface EventService {
         @Query("orderBy") orderBy: String,
         @Query("limit") limit:Int,
     ): Response<ApiResponse<Data<List<Events>>>>
+
+
 }
