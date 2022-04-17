@@ -2,6 +2,7 @@ package com.esther.intermediachallenge.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -40,8 +41,11 @@ class MainActivity : AppCompatActivity() {
         binding.tvToolBarTitle.text = title
     }
 
-
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    fun buttonNavigationHide(){
+        binding.btnNavView.isVisible = false
     }
 }

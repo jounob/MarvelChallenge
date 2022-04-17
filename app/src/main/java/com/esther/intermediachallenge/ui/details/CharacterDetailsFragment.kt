@@ -49,7 +49,7 @@ class CharacterDetailsFragment : Fragment() {
 
     private fun setupView() {
         val mainActivity = activity as MainActivity
-
+        mainActivity.buttonNavigationHide()
         mainActivity.setToolbarTitle(args.character.name)
         with(binding) {
             setImage(ivImageComcis, args.character.thumbnail)
@@ -75,7 +75,6 @@ class CharacterDetailsFragment : Fragment() {
                 }
             }
         }
-
     }
 
     private fun retry(){
@@ -88,11 +87,13 @@ class CharacterDetailsFragment : Fragment() {
             .show()
     }
     private fun hideViewAndShowLoading(){
-        binding.progressBarCharacter.root.isVisible = true
+        binding.progressBar.root.isVisible = true
         binding.layoutDetails.isVisible = false
     }
     private fun hideLoadingAndShowView(){
-        binding.progressBarCharacter.root.isVisible = false
+        binding.progressBar.root.isVisible = false
         binding.layoutDetails.isVisible = true
     }
+
+
 }
