@@ -48,4 +48,7 @@ class MainActivity : AppCompatActivity() {
     fun buttonNavigationHide(){
         binding.btnNavView.isVisible = false
     }
+    fun buttonNavigationVisible(){
+        binding.btnNavView.isVisible = true
+    }
 }

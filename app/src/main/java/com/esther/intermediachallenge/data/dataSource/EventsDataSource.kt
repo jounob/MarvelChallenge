@@ -9,4 +9,7 @@ class EventsDataSource @Inject constructor(
 ) : NetResult() {
     suspend fun getEvent(auth: HashMap<String, String>, orderBy: String, limit: Int) =
         getResult { eventService.getEvents(auth, orderBy, limit) }
+
+    suspend fun getComicsEvent(eventId:Int, auth: HashMap<String, String>, limit:Int) =
+        getResult { eventService.getComicsEvents(eventId, auth, limit)}
 }

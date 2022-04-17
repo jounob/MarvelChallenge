@@ -10,13 +10,14 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.esther.intermediachallenge.databinding.FragmentCharactersBinding
+import com.esther.intermediachallenge.ui.main.MainActivity
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CharactersFragment : Fragment() {
 
-    private var _binding: FragmentCharactersBinding ?= null
+    private var _binding: FragmentCharactersBinding? = null
     private val binding get() = _binding!!
     private val viewModel: CharactersViewModel by viewModels()
     private val adapter = CharactersAdapter()
@@ -31,15 +32,18 @@ class CharactersFragment : Fragment() {
         setupCharactersList()
         characterObserver()
         setupPagination()
+
         return binding.root
     }
 
+
+
     private fun setupCharactersList() {
         binding.rvListComics.adapter = adapter
-
         adapter.onClickListener = {
-          val action = CharactersFragmentDirections.goToDetails(it)
+            val action = CharactersFragmentDirections.goToDetails(it)
             findNavController().navigate(action)
+
         }
     }
 
@@ -60,10 +64,12 @@ class CharactersFragment : Fragment() {
                 it.isLoading -> {
                     loading()
                 }
-                it.isError -> { retry()}
+                it.isError -> {
+                    retry()
+                }
                 it.isSuccess.isNotEmpty() -> {
                     adapter.addAll(it.isSuccess)
-                    binding.progressBarCharacter.root.isVisible = false
+                    binding.progressBar.root.isVisible = false
 
                 }
             }
@@ -72,14 +78,17 @@ class CharactersFragment : Fragment() {
     }
 
 
-
-    private fun loading(){
-        binding.progressBarCharacter.root.isVisible = true
+    private fun loading() {
+        binding.progressBar.root.isVisible = true
     }
 
-    private fun retry(){
+    private fun retry() {
         val contextView = binding.rvListComics
-        Snackbar.make(contextView, "No Internet Connection please retry", Snackbar.LENGTH_INDEFINITE)
+        Snackbar.make(
+            contextView,
+            "No Internet Connection please retry",
+            Snackbar.LENGTH_INDEFINITE
+        )
             .setAction("Retry") {
                 characterObserver()
             }

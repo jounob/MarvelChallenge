@@ -44,6 +44,7 @@ class CharacterDetailsFragment : Fragment() {
         val mainActivity = activity as MainActivity
         super.onDestroyView()
         mainActivity.setToolbarTitle()
+        mainActivity.buttonNavigationVisible()
         _binding = null
     }
 
@@ -86,6 +87,7 @@ class CharacterDetailsFragment : Fragment() {
             }
             .show()
     }
+
     private fun hideViewAndShowLoading(){
         binding.progressBar.root.isVisible = true
         binding.layoutDetails.isVisible = false
