@@ -10,9 +10,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
-        android:text="Comics To Discuss"
+        android:text="@string/comics_to_discuss"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -21,13 +20,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/rvComicsToDiscuss"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvComicsToDiscuss"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_event_comics"/>
+        tools:itemCount="5"
+        tools:listitem="@layout/item_event_comics" />
 </androidx.constraintlayout.widget.ConstraintLayout>

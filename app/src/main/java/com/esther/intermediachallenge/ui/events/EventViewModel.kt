@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.esther.intermediachallenge.data.models.Comic
 import com.esther.intermediachallenge.data.models.Events
 import com.esther.intermediachallenge.data.models.Resource
 import com.esther.intermediachallenge.data.repositories.EventRepository
@@ -20,11 +21,15 @@ class EventViewModel @Inject constructor(
     private val _eventState = MutableLiveData<EventState>()
     val eventState: LiveData<EventState> = _eventState
 
+    private val _eventComicsState = MutableLiveData<EventComicsState>()
+    val eventComicsState: LiveData<EventComicsState> = _eventComicsState
+
     init {
-        eventComics()
+        events()
+//        eventComics(Ev())
     }
 
-    private fun eventComics() {
+    private fun events() {
         viewModelScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {
                 eventRepository.getEvents()
@@ -41,10 +46,37 @@ class EventViewModel @Inject constructor(
         }
     }
 
+    fun eventComics(eventId: Int) {
+        viewModelScope.launch(Dispatchers.Main) {
+            withContext(Dispatchers.IO) {
+                eventRepository.getComicsEvent(eventId)
+            }.run {
+                _eventComicsState.value = EventComicsState(isExpanded = true)
+                when (status) {
+                    Resource.Status.LOADING ->
+                        _eventComicsState.value = EventComicsState(isLoading = true)
+                    Resource.Status.ERROR ->
+                        _eventComicsState.value = EventComicsState(isError = true)
+                    Resource.Status.SUCCESS ->
+                        _eventComicsState.value =
+                            EventComicsState(isSuccess = this.data ?: emptyList())
+                }
+            }
+        }
+    }
+
     data class EventState(
         val isLoading: Boolean = false,
         val isError: Boolean = false,
         val isSuccess: List<Events> = emptyList()
     )
+
+    data class EventComicsState(
+        val isLoading: Boolean = false,
+        val isError: Boolean = false,
+        val isSuccess: List<Comic> = emptyList(),
+        val isExpanded: Boolean = false
+    )
+
 }
 
