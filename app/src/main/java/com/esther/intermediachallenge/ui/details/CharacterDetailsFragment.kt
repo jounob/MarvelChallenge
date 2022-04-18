@@ -40,13 +40,6 @@ class CharacterDetailsFragment : Fragment() {
         return binding.root
     }
 
-    override fun onDestroyView() {
-        val mainActivity = activity as MainActivity
-        super.onDestroyView()
-        mainActivity.setToolbarTitle()
-        mainActivity.buttonNavigationVisible()
-        _binding = null
-    }
 
     private fun setupView() {
         val mainActivity = activity as MainActivity
@@ -61,6 +54,7 @@ class CharacterDetailsFragment : Fragment() {
         viewModel.loadComics(args.character.id)
 
     }
+
     private fun characterDetailsObserver() {
         viewModel.characterDetailsState.observe(viewLifecycleOwner) {
             when {
@@ -78,7 +72,7 @@ class CharacterDetailsFragment : Fragment() {
         }
     }
 
-    private fun retry(){
+    private fun retry() {
         val contextView = binding.rvComics
         Snackbar.make(contextView, "Wait a fwe second and try again", Snackbar.LENGTH_LONG)
             .setAction("RETRY") {
@@ -88,13 +82,22 @@ class CharacterDetailsFragment : Fragment() {
             .show()
     }
 
-    private fun hideViewAndShowLoading(){
+    private fun hideViewAndShowLoading() {
         binding.progressBar.root.isVisible = true
         binding.layoutDetails.isVisible = false
     }
-    private fun hideLoadingAndShowView(){
+
+    private fun hideLoadingAndShowView() {
         binding.progressBar.root.isVisible = false
         binding.layoutDetails.isVisible = true
+    }
+
+    override fun onDestroyView() {
+        val mainActivity = activity as MainActivity
+        super.onDestroyView()
+        mainActivity.setToolbarTitle()
+        mainActivity.buttonNavigationVisible()
+        _binding = null
     }
 
 

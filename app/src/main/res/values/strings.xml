@@ -14,5 +14,6 @@
     <string name="title_app">Marvel Challenge</string>
     <string name="text_sign_up">Sign Up</string>
     <string name="appears_in_this_comics">Appears in this Comics</string>
+    <string name="comics_to_discuss">Comics To Discuss</string>
 
 </resources>

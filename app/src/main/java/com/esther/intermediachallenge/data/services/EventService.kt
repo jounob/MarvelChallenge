@@ -16,7 +16,7 @@ interface EventService {
         @Query("limit") limit:Int,
     ): Response<ApiResponse<Data<List<Events>>>>
 
-    @GET("events/{eventsId}/comics")
+    @GET("events/{eventId}/comics")
     suspend fun getComicsEvents(
         @Path ("eventId") eventId:Int,
         @QueryMap auth: HashMap<String, String>,
